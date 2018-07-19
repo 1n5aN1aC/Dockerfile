@@ -5,4 +5,4 @@ RUN apk update --repository $EDGE_REPOSITORY \
 	&& apk add ffmpeg --repository $EDGE_REPOSITORY \
 	&& rm -rf /var/cache/apk/*
 RUN pip install youtube-dl
-CMD ["/bin/sh"]
+CMD crond -l 2 -f
