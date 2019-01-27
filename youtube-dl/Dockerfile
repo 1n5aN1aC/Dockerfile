@@ -1,8 +1,7 @@
-FROM alpine:3.6
-ENV EDGE_REPOSITORY=http://dl-cdn.alpinelinux.org/alpine/edge/main
-RUN apk update --repository $EDGE_REPOSITORY \
+FROM alpine:3.7
+RUN apk update \
 	&& apk add py-pip ca-certificates \
-	&& apk add ffmpeg --repository $EDGE_REPOSITORY \
+	&& apk add ffmpeg \
 	&& rm -rf /var/cache/apk/*
 RUN pip install youtube-dl
 CMD ["/bin/sh"]
