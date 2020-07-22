@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.11
 RUN apk update \
 	&& apk add py-pip ca-certificates \
 	&& apk add ffmpeg \
