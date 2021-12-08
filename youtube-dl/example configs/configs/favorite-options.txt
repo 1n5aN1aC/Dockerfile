@@ -1,0 +1,39 @@
+--ignore-errors
+# Filename options
+-o "%(uploader)s (%(uploader_id)s)/%(upload_date)s - %(title)s - (%(duration)ss) [%(resolution)s] [%(id)s].%(ext)s"
+
+# Very rarely, youtube-dl can prefer 720p over higher resolutions.  This forces the higher resolutions, if available.
+# This is no loner an issue with yt-dlp.  Uncomment if using youtube-dl
+#-f ("bestvideo[width>=1920]"/bestvideo)+bestaudio/best
+
+# Archive Settings
+--download-archive /configs/favorite-archive.txt
+-a favorite-channels.txt
+
+# Uniform Format
+--prefer-ffmpeg
+--merge-output-format mkv
+
+# Get All Subs to SRT & Embed
+--all-subs
+--write-sub
+--convert-subs srt
+--embed-subs
+
+# Download & save metadata
+--write-thumbnail
+#--embed-thumbnail   (Only works for mp4 & mp3)
+--add-metadata
+#--xattrs            (requires additional modules)
+--write-description
+--write-annotations
+--write-info-json
+
+--cookies /configs/cookies.txt
+
+#Extra options for yt-dlp.  Uncomment if using youtube-dl
+--no-write-playlist-metafiles
+--sub-langs all,-live_chat
+
+# Debug
+-v

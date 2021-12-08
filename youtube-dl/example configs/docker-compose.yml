@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  # Downloads youtube videos.
+  # https://hub.docker.com/r/1n5an1ac/youtube-dl
+  # https://www.github.com/1n5aN1aC/Dockerfile
+  # https://youtube-dl.org/
+  # https://github.com/yt-dlp/yt-dlp
+  youtube-dl:
+    container_name: youtube-dl
+    image: 1n5an1ac/youtube-dl
+    restart: unless-stopped
+    #Keeps container running
+    command: crond -l 2 -f
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /mnt/data/Video/Youtube:/Youtube-DL
+      - ${VOLUMES_ROOT_PATH}/youtube-dl/configs:/configs
+      - ${VOLUMES_ROOT_PATH}/youtube-dl/daily:/etc/periodic/daily:ro

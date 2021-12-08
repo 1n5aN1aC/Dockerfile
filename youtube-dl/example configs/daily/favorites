@@ -1,0 +1,7 @@
+#!/bin/sh
+pip3 install --upgrade yt-dlp
+hash -r
+
+#Weekly list of favories and liked videos
+cd /Youtube-DL/Likes_Archive
+yt-dlp --config-location /configs/favorite-options.txt
